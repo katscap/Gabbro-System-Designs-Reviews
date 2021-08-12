@@ -1,0 +1,29 @@
+{
+  "name": "gabbro-system-designs-reviews",
+  "version": "1.0.0",
+  "description": "Reviews service of the  Hack Reactor system design capstone",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gabbro-SDC/Gabbro-System-Designs-Reviews.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gabbro-SDC/Gabbro-System-Designs-Reviews/issues"
+  },
+  "homepage": "https://github.com/Gabbro-SDC/Gabbro-System-Designs-Reviews#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jest": "^27.0.6",
+    "postgres": "^1.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.0"
+  }
+}
