@@ -1,7 +1,6 @@
 
-
 COPY reviews(id, product_id, rating, date, summary, body, recommend, reported, reviewer_name, reviewer_email, response, helpfulness)
-FROM '/Users/katielaw/RFE4/SDCData/smallReviews.csv'
+FROM '/Users/katielaw/RFE4/SDCData/reviews.csv'
 DELIMITER ','
 CSV HEADER;
 
@@ -30,7 +29,6 @@ select setval('characteristic_reviews_id_seq', (select max(id) from characterist
 select setval('photos_id_seq', (select max(id) from photos));
 select setval('reviews_id_seq', (select max(id) from reviews));
 
-SELECT to_char (now()::timestamp at time zone 'UTC', 'YYYY-MM-DD"T"HH24:MI:SS"Z"')
 
 -- all data uploaded to database reviews
 -- all sequences reset to highest number in id column
