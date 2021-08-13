@@ -33,3 +33,16 @@ select setval('reviews_id_seq', (select max(id) from reviews));
 -- all data uploaded to database reviews
 -- all sequences reset to highest number in id column
 -- timestamps in reviews converted from epoch to utc
+
+SELECT reviews.id, product_id, date, summary, photos FROM reviews
+LEFT JOIN photos ON reviews.id = review_id
+WHERE product_id = 2
+GROUP BY reviews.id, photos
+ORDER BY date DESC
+LIMIT 10;
+
+SELECT * FROM reviews
+            LEFT JOIN photos ON reviews.id = review_id
+            WHERE product_id = ($1)
+            ORDER BY date DESC
+            LIMIT ($2)

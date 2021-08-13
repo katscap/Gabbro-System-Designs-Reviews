@@ -4,7 +4,8 @@
   "description": "Reviews service of the  Hack Reactor system design capstone",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "jest": "^27.0.6",
+    "nodemon": "^2.0.12",
+    "pg": "^8.7.1",
     "postgres": "^1.0.2"
   },
   "devDependencies": {
