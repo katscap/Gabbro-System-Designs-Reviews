@@ -4,6 +4,7 @@ FROM '/Users/katielaw/RFE4/SDCData/reviews.csv'
 DELIMITER ','
 CSV HEADER;
 
+
 COPY characteristics(id, product_id, name)
 FROM '/Users/katielaw/RFE4/SDCData/characteristics.csv'
 DELIMITER ','
@@ -29,20 +30,7 @@ select setval('characteristic_reviews_id_seq', (select max(id) from characterist
 select setval('photos_id_seq', (select max(id) from photos));
 select setval('reviews_id_seq', (select max(id) from reviews));
 
-
--- all data uploaded to database reviews
--- all sequences reset to highest number in id column
--- timestamps in reviews converted from epoch to utc
-
-SELECT reviews.id, product_id, date, summary, photos FROM reviews
-LEFT JOIN photos ON reviews.id = review_id
-WHERE product_id = 2
-GROUP BY reviews.id, photos
-ORDER BY date DESC
-LIMIT 10;
-
-SELECT * FROM reviews
-            LEFT JOIN photos ON reviews.id = review_id
-            WHERE product_id = ($1)
-            ORDER BY date DESC
-            LIMIT ($2)
+CREATE INDEX rev_prod_idx ON reviews (product_id)
+CREATE INDEX char_prod_idx ON characteristics (product_id)
+CREATE INDEX char_rev_id ON characteristic_reviews (review_id)
+CREATE INDEX photos_rev_idx ON pg_catalog.pg_amop (review_id)

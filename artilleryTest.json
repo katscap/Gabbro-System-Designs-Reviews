@@ -1,0 +1,35 @@
+{
+  "config": {
+    "target": "http://127.0.0.1:3000",
+    "phases": [
+      {
+        "duration": 100,
+        "arrivalRate": 25
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "flow": [
+        {
+          "post": {
+            "url": "/reviews",
+            "json": {
+                "product_id": 60,
+                "rating": 3,
+                "summary": "I don't really like this piece.",
+                "body": "It's very uncomfortable and unflattering",
+                "recommend": false,
+                "name": "cactus",
+                "email": "desert@oasis.com",
+                "photos": ["yahoo.com","bing.com","facebook.com"],
+                "characteristics": {}
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+
+
